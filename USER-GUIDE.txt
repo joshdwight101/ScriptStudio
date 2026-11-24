@@ -1,0 +1,40 @@
+SCRIPT STUDIO USER GUIDE
+Version 1.0.1 · Joshua Dwight
+
+Script Studio runs local shell scripts in a visible queue and collects their output in one place.
+
+GET STARTED
+
+From the project folder, run bash install.sh, then open Script Studio from the Ubuntu application menu. The installer requests administrator access to install dependencies. Launch the app as your regular user.
+
+FIND AND SELECT SCRIPTS
+
+1. Choose Folder and select the directory with your scripts. Script Studio lists .sh files directly in that directory and skips subfolders and symbolic links.
+2. Use the filter to find scripts by filename. Select individual scripts with the checkboxes, or click Select All to check the visible scripts. Only checked scripts visible under the current filter are included when you start a run.
+3. Use Refresh to rescan after adding, renaming, or removing files. Refresh rebuilds the list, so select your scripts again afterward.
+
+RUN A QUEUE
+
+1. Review the scripts. Keep Run as administrator off for scripts that can run under your normal account.
+2. Click Run Selected and review the confirmation. The scripts run with Bash, one at a time, in the displayed order. The chosen folder is their working directory.
+3. Watch the Execution Console and the result beside each script. Use Stop Queue to cancel queued work and request termination of the current script. Changes already made by a script remain in effect, and elevated child processes may continue running.
+4. Click Open Logs to view saved output. The logs are stored under ~/.local/state/script-studio/logs. Clear empties the on-screen console.
+
+Make Executable adds execute permission to the selected files. Script Studio invokes Bash to run the queue, so this step is useful mainly when you also want to launch a script directly elsewhere. Changing permissions on files you do not own may require authentication.
+
+ADMINISTRATOR MODE AND INTERACTIVE SCRIPTS
+
+Run as administrator uses PolicyKit for script execution and can prompt for each script. Review the full script before granting elevated access. Scripts that need typed input, a terminal window, or a graphical root session may need to be run separately from a terminal.
+
+IF A SCRIPT IS MISSING OR FAILS
+
+• Check that it is a readable .sh file directly inside the chosen folder. Clear the filename filter if it might be hidden, then use Refresh and select it again.
+• Check the result next to the script and read its output in the Execution Console or saved log. Some programs buffer their output, so messages may appear together when the script finishes.
+
+DESKTOP SHORTCUT
+
+File → Install Desktop Shortcut creates or replaces the Script Studio desktop launcher. If prompted, right-click it and choose Allow Launching.
+
+APPLICATION MENU
+
+File → Install in Application Menu creates or refreshes this app’s launcher in the Ubuntu application menu.
